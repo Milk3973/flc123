@@ -27,6 +27,7 @@ var swiper = new Swiper('.sl-slider', {
     slidesPerView: 1,
     spaceBetween: 0,
     allowTouchMove: false,
+    initialSlide: 0,
     pagination: {
       el: '.sl-pagination',
       clickable: true,
