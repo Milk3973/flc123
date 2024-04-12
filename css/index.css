@@ -563,11 +563,12 @@ hr {
 }
 
 .sl-slider {
-  background-color: #033669;
+  background-color: #212222;
   display: flex;
   flex-direction: column;
   justify-content: center;
   /* padding-bottom: 300px; */
+  border: solid 5px #6B7280;
 }
 
 .sl-pagination {
@@ -626,7 +627,7 @@ hr {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 5px;
+  top: 2px;
   background: currentColor;
 }
 
@@ -637,3 +638,4 @@ hr {
 .pagination:hover {
   color: #fff;
 }
+
