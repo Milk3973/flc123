@@ -270,6 +270,7 @@ body {
 
 .hero-left .hero-hook {
   font-size: 3rem;
+  white-space: nowrap;
 }
 
 /* .hero-left .hero-hook-btm {
