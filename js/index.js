@@ -46,9 +46,6 @@ var swiper = new Swiper('.sl-slider', {
     swiper.slideTo(slideIndex);
   });
   
-  (function () { var script = document.createElement('script'); script.src='//cdn.jsdelivr.net/npm/eruda'; document.body.appendChild(script); script.onload = function () { eruda.init() } })();
-  
-  
   // Check if URL has a hash that matches a slide
     var hash = window.location.hash;
     if (hash) {

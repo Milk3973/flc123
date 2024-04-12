@@ -115,13 +115,10 @@ body {
 
 .sl-dd:hover .sl-dd-c,
 .tp-dd:hover .tp-dd-c,
-.pr-dd:hover .pr-dd-c,
-.sl-dd-c:hover,
-.tp-dd-c:hover,
-.pr-dd-c:hover {
+.pr-dd:hover .pr-dd-c{
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Updated transition */
+  transition: 0.4s ease-in-out; /* Updated transition */
   transform: translateY(0);
 }
 
@@ -137,7 +134,7 @@ body {
   z-index: 1;
   border-radius: 15px;
   transform: translateY(100px);
-  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; /* Updated transition */
+  transition: 0.4s ease-in-out; /* Updated transition */
 }
 
 
@@ -159,6 +156,7 @@ body {
 .tp-dd-c a:hover,
 .pr-dd-c a:hover  {
   background-color: #dad6d6;
+  text-decoration: underline;
   /* Adjust as per your design */
 }
 
