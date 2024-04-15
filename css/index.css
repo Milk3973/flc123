@@ -74,7 +74,7 @@ body {
 }
 
 .nav-link, .tp-dd, .sl-dd, .pr-dd {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   text-decoration: none;
   font-weight: 500;
   margin: 0 15px;
@@ -86,7 +86,7 @@ body {
 }
 
 .dd-nav-link {
-  font-size: 1.5rem;
+  font-size: 1.38rem;
   text-decoration: none;
   font-weight: 500;
   transition: .5s ease-in-out;
@@ -420,7 +420,7 @@ body {
 }
 
 .sec-title {
-  font-size: 6rem;
+  font-size: 4rem;
   font-weight: 800;
   margin-bottom: 50px;
   text-align: center;
@@ -1080,3 +1080,4 @@ hr {
   width: 50%;
   padding: 2rem;
 }
+
