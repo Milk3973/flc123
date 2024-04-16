@@ -49,16 +49,34 @@ body {
   padding: 15px;
   width: 100%;
   display: flex;
+  background-color: #181818;
   justify-content: space-between;
+  position: fixed;
+  z-index: 50;
+  border-bottom: 5px solid #e87374;
+  top: -100px; /* Initially hide the navigation */
+  transition: top 0.3s ease; /* Add transition for smooth animation */
+  align-items: center;
+}
+
+.navigation2 {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-visible {
+  top: 0; /* Show the navigation when it's scrolled into view */
 }
 
 
 .hamburger {
   display: none;
   cursor: pointer;
-  position: fixed;
   right: 30px;
-  z-index: 9999;
+  z-index: 100001;
 }
 
 .bar {
@@ -144,7 +162,7 @@ body {
     text-align: center;
     justify-content: center;
     transition: .4s ease-in-out;
-    z-index: 9999;
+    z-index: 50;
     height: 100%;
     width: 30%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -177,9 +195,10 @@ body {
   display: none; /* Initially hidden */
 }
 
-.sidebar.active + .overlay {
+.sidebar.active ~ .overlay {
   display: block; /* Show overlay when sidebar is active */
 }
+
 
 
 .nn-link {
@@ -292,7 +311,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 50;
   background-color: #181818;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add box shadow */
   border-bottom: 5px solid #e87374;

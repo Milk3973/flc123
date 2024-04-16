@@ -26,6 +26,7 @@ var slides = ['Student 1', 'Student 2', 'Student 3'];
 var swiper = new Swiper('.sl-slider', {
   loop: true,
   slidesPerView: 1,
+  autoHeight: true,
   spaceBetween: 0,
   allowTouchMove: false,
   initialSlide: 0,
@@ -130,6 +131,9 @@ var images2 = document.querySelectorAll(".ex-2-image-container img");
 var images3 = document.querySelectorAll(".sl-i-c img");
 var images4 = document.querySelectorAll(".sl-i-c-2 img");
 var images5 = document.querySelectorAll(".sw-ig-c img");
+var images6 = document.querySelectorAll(".pr-ul-c-c img");
+var images7 = document.querySelectorAll(".pr-i-c img");
+var images8 = document.querySelectorAll(".tp-i-c img");
 
 // Get the close button for the image modal
 var imageCloseButton = document.querySelector(".i-c");
@@ -236,6 +240,66 @@ images5.forEach(function (image) {
   });
 });
 
+images6.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.textContent = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
+images7.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.textContent = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
+images8.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.textContent = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
 // Close the image modal when the close button is clicked
 imageCloseButton.onclick = function () {
   imageModal.style.display = "none";
@@ -253,3 +317,69 @@ window.onclick = function (event) {
     // imageModal.querySelector(".i-m-c").style.width = "32rem";
   }
 };
+
+
+const hamburgers = document.querySelectorAll(".hamburger");
+const navMenus = document.querySelectorAll(".nav-links");
+
+hamburgers.forEach(hamburger => {
+  hamburger.addEventListener('click', () => {
+    hamburgers.forEach(h => h.classList.toggle("active"));
+    navMenus.forEach(menu => menu.classList.toggle("active"));
+  });
+});
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburgers.forEach(h => h.classList.remove("active"));
+    navMenus.forEach(menu => menu.classList.remove("active"));
+  });
+});
+
+
+window.addEventListener('scroll', function() {
+  var heroHeight = document.getElementById('hero').offsetHeight;
+  var navbar = document.getElementById('navbar');
+  
+  if (window.pageYOffset > heroHeight) {
+    navbar.classList.add('sticky');
+  } else {
+    navbar.classList.remove('sticky');
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  var navbar = document.getElementById("navbar");
+  var heroHeight = document.getElementById("hero").clientHeight; // Adjust to match your hero ID
+
+  // Add scroll event listener
+  window.addEventListener("scroll", function() {
+      if (window.pageYOffset > heroHeight) {
+          navbar.classList.add("navbar-visible");
+      } else {
+          navbar.classList.remove("navbar-visible");
+      }
+  });
+});
+
+window.addEventListener('load', () => {
+  const navigation = document.querySelector('.navigation');
+  const heroSection = document.querySelector('.hero');
+
+  function showNavbarOnLoad() {
+    if (window.scrollY > heroSection.offsetHeight) {
+      navigation.classList.add('navbar-visible');
+    }
+  }
+
+  showNavbarOnLoad();
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > heroSection.offsetHeight) {
+      navigation.classList.add('navbar-visible');
+    } else {
+      navigation.classList.remove('navbar-visible');
+    }
+  });
+});
