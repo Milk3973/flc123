@@ -350,14 +350,7 @@ hamburgers.forEach(hamburger => {
   });
 });
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener("click", () => {
-    hamburgers.forEach(h => h.classList.remove("active"));
-    navMenus.forEach(menu => menu.classList.remove("active"));
-  });
-});
-
-document.querySelectorAll('.dd-nav-link a').forEach(link => {
+document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener("click", () => {
     hamburgers.forEach(h => h.classList.remove("active"));
     navMenus.forEach(menu => menu.classList.remove("active"));
@@ -365,27 +358,6 @@ document.querySelectorAll('.dd-nav-link a').forEach(link => {
 });
 
 
-document.querySelectorAll('.sl-dd-c a').forEach(link => {
-  link.addEventListener("click", () => {
-    hamburgers.forEach(h => h.classList.remove("active"));
-    navMenus.forEach(menu => menu.classList.remove("active"));
-  });
-});
-
-document.querySelectorAll('.pr-dd-c a').forEach(link => {
-  link.addEventListener("click", () => {
-    hamburgers.forEach(h => h.classList.remove("active"));
-    navMenus.forEach(menu => menu.classList.remove("active"));
-  });
-});
-
-
-document.querySelectorAll('.tp-dd-c a').forEach(link => {
-  link.addEventListener("click", () => {
-    hamburgers.forEach(h => h.classList.remove("active"));
-    navMenus.forEach(menu => menu.classList.remove("active"));
-  });
-});
 
 
 window.addEventListener('scroll', function () {
