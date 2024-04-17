@@ -248,6 +248,10 @@ main {
   transition: .5s ease-in-out;
 }
 
+.nav-link {
+  transform: translateY(3.5px);
+}
+
 .nav-links .nav-link::after {
   content: "";
   background-color: #e87374;

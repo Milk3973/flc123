@@ -30,10 +30,13 @@ var swiper = new Swiper('.sl-slider', {
   spaceBetween: 0,
   allowTouchMove: false,
   initialSlide: 0,
+  hashNavigation: {
+    watchState: true,
+  },
   pagination: {
     el: '.sl-pagination',
     clickable: true,
-    renderBullet: function(index, className) {
+    renderBullet: function (index, className) {
       return '<a href="#' + slides[index].toLowerCase().replace(/ /g, '-') + '" class="' + className + ' pagination index' + index + '">' + slides[index] + '</a>';
     },
   },
@@ -41,12 +44,12 @@ var swiper = new Swiper('.sl-slider', {
 
 // Function to scroll to the slide based on hash
 function scrollToSlide(hash) {
-  var slideIndex = slides.findIndex(function(slide) {
+  var slideIndex = slides.findIndex(function (slide) {
     return slide.toLowerCase().replace(/ /g, '_') === hash.replace('#', '');
   });
   if (slideIndex !== -1) {
     swiper.slideTo(slideIndex);
-    setTimeout(function() {
+    setTimeout(function () {
       document.getElementById('s-slider').scrollIntoView();
     }, 500); // Adjust the delay as needed
 
@@ -56,17 +59,17 @@ function scrollToSlide(hash) {
 }
 
 // Check if URL has a hash that matches a slide when the page loads
-window.onload = function() {
+window.onload = function () {
   var hash = window.location.hash;
   if (hash) {
     scrollToSlide(hash);
   }
 };
 
-$('.sl-pagination').on('click', 'a', function(event) {
+$('.sl-pagination').on('click', 'a', function (event) {
   var slideIndex = $(this).index();
   var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with underscores
-  var hash = `#${slideName}`; 
+  var hash = `#${slideName}`;
 
   // Update the hash in the URL
   window.location.hash = hash;
@@ -75,7 +78,7 @@ $('.sl-pagination').on('click', 'a', function(event) {
   document.getElementById('s-slider').scrollIntoView();
 
   // Wait for the scroll to finish before changing the slide
-  setTimeout(function() {
+  setTimeout(function () {
     swiper.slideTo(slideIndex);
   }, 100);
 
@@ -83,44 +86,40 @@ $('.sl-pagination').on('click', 'a', function(event) {
   updatePaginationActiveState(slideIndex);
 });
 
-$('.sl-dd-link').on('click', function(event) {
-  var slideIndex = $(this).data('slide') - 1;
+$('.sl-dd-link').on('click', function (event) {
+  var slideIndex = $(this).data('slide') - 1; // Adjusted to match the index starting from 0
   var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with underscores
   var hash = `#${slideName}`; // Construct the hash
-
+  console.log('swiper ai: ' + swiper.realIndex);
+  swiper.realIndex = slideIndex;
   // Update the hash in the URL
   window.location.hash = hash;
 
-  // Scroll to the #s-slider element
-  document.getElementById('s-slider').scrollIntoView();
-
-  // Wait for the scroll to finish before changing the slide
-  setTimeout(function() {
-    swiper.slideTo(slideIndex);
-  }, 100);
-
-  // Update pagination active state
-  updatePaginationActiveState(slideIndex);
+  // Wait for the hashchange event to trigger the slide change
 });
 
 // Bind hashchange event to slide to a hash's slide
-$(window).on('hashchange', function() {
+$(window).on('hashchange', function () {
   var hash = window.location.hash;
   if (hash && slides.includes(hash.replace('#slide', '').replace(/_/g, ' '))) {
     var slideIndex = slides.indexOf(hash.replace('#slide', '').replace(/_/g, ' '));
     swiper.slideTo(slideIndex);
-
+    swiper.realIndex = slideIndex;
     // Update pagination active state
     updatePaginationActiveState(slideIndex);
   }
 });
 
+
 // Function to update pagination active state
 function updatePaginationActiveState(slideIndex) {
-  console.log(slideIndex)
-  $('.swiper-pagination-bullet').removeClass('swiper-pagination-bullet-active');
-  $('.swiper-pagination-bullet:eq(' + slideIndex + ')').addClass('swiper-pagination-bullet-active');
+  swiper.slideTo(slideIndex); // Slide to the specified index
+
+  // Update pagination active state
+  swiper.realIndex = slideIndex;
+  console.log(swiper.realIndex)
 }
+
 
 // Get the image modal
 var imageModal = document.getElementById("img-modal");
@@ -359,10 +358,10 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   var heroHeight = document.getElementById('hero').offsetHeight;
   var navbar = document.getElementById('navbar');
-  
+
   if (window.pageYOffset > heroHeight) {
     navbar.classList.add('sticky');
   } else {
@@ -371,17 +370,17 @@ window.addEventListener('scroll', function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   var navbar = document.getElementById("navbar");
   var heroHeight = document.getElementById("hero").clientHeight; // Adjust to match your hero ID
 
   // Add scroll event listener
-  window.addEventListener("scroll", function() {
-      if (window.pageYOffset > heroHeight) {
-          navbar.classList.add("navbar-visible");
-      } else {
-          navbar.classList.remove("navbar-visible");
-      }
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > heroHeight) {
+      navbar.classList.add("navbar-visible");
+    } else {
+      navbar.classList.remove("navbar-visible");
+    }
   });
 });
 
