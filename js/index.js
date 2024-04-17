@@ -357,6 +357,36 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
+document.querySelectorAll('.dd-nav-link a').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburgers.forEach(h => h.classList.remove("active"));
+    navMenus.forEach(menu => menu.classList.remove("active"));
+  });
+});
+
+
+document.querySelectorAll('.sl-dd-c a').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburgers.forEach(h => h.classList.remove("active"));
+    navMenus.forEach(menu => menu.classList.remove("active"));
+  });
+});
+
+document.querySelectorAll('.pr-dd-c a').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburgers.forEach(h => h.classList.remove("active"));
+    navMenus.forEach(menu => menu.classList.remove("active"));
+  });
+});
+
+
+document.querySelectorAll('.tp-dd-c a').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburgers.forEach(h => h.classList.remove("active"));
+    navMenus.forEach(menu => menu.classList.remove("active"));
+  });
+});
+
 
 window.addEventListener('scroll', function () {
   var heroHeight = document.getElementById('hero').offsetHeight;
