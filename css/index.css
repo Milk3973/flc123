@@ -45,6 +45,10 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  margin-bottom: 50px;
+}
+
 .navigation {
   padding: 15px;
   width: 100%;
@@ -54,8 +58,10 @@ body {
   position: fixed;
   z-index: 50;
   border-bottom: 5px solid #e87374;
-  top: -100px; /* Initially hide the navigation */
-  transition: top 0.3s ease; /* Add transition for smooth animation */
+  top: -100px;
+  /* Initially hide the navigation */
+  transition: top 0.3s ease;
+  /* Add transition for smooth animation */
   align-items: center;
 }
 
@@ -68,7 +74,8 @@ body {
 }
 
 .navbar-visible {
-  top: 0; /* Show the navigation when it's scrolled into view */
+  top: 0;
+  /* Show the navigation when it's scrolled into view */
 }
 
 
@@ -165,7 +172,7 @@ body {
     z-index: 50;
     height: 100%;
     width: 30%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     border-left: 5px solid #e87374;
   }
 
@@ -180,8 +187,27 @@ body {
   .nav-links.active {
     right: 0;
     display: flex;
+    
   }
-  
+
+  .pr-dd-c, .tp-dd-c {
+    position: relative;
+}
+
+.pr-dd-c, .tp-dd-c {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #181818;
+    padding: 10px 0;
+    display: none;
+}
+
+.pr-dd:hover .pr-dd-c, .tp-dd:hover .tp-dd-c {
+    display: block;
+}
+
 }
 
 .overlay {
@@ -190,13 +216,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  z-index: 9998; /* Ensure it's above other content */
-  display: none; /* Initially hidden */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent black */
+  z-index: 9998;
+  /* Ensure it's above other content */
+  display: none;
+  /* Initially hidden */
 }
 
-.sidebar.active ~ .overlay {
-  display: block; /* Show overlay when sidebar is active */
+.nav-links.active~.overlay {
+  display: block;
+  /* Show overlay when sidebar is active */
 }
 
 
@@ -313,7 +343,7 @@ body {
   width: 100%;
   z-index: 50;
   background-color: #181818;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border-bottom: 5px solid #e87374;
 }
 
@@ -465,6 +495,7 @@ body {
   line-height: 1.5rem;
   margin-bottom: 15px;
   width: 120%;
+  text-align: justify;
 }
 
 .hero-btn-container {
@@ -575,7 +606,7 @@ body {
 }
 
 .sec-title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 800;
   margin-bottom: 50px;
   text-align: center;
@@ -615,7 +646,7 @@ body {
 }
 
 .p-st {
-  font-size: 4rem;
+  font-size: 3rem;
   text-decoration: underline;
   font-weight: 800;
   text-align: center;
@@ -631,7 +662,7 @@ body {
   margin-bottom: 15px;
   margin-top: 30px;
   width: 90%;
-  text-align: center;
+  text-align: justify;
   background-color: #181818;
   border-radius: 20px;
   padding: 35px;
@@ -707,7 +738,7 @@ hr {
   line-height: 1.5rem;
   margin-bottom: 15px;
   width: 70%;
-  text-align: center;
+  text-align: justify;
   background-color: #181818;
   border-radius: 20px;
   padding: 35px;
@@ -731,7 +762,7 @@ hr {
 .p-o-i-r {
   border-radius: 20px;
   float: right;
-  shape-outside: polygon(29px 40px, 16.16% 6.59%, 100.96% 8.28%, 94.86% 99.64%, 18.11% 98.8%, 8.72% 84.13%, 6.83% 63.55%);
+  shape-outside: polygon(14px 2px, 17% 1.26%, 100.96% 8.28%, 94.86% 99.64%, 18.11% 98.8%, 8.72% 84.13%, 6.83% 63.55%);
   margin-left: 2rem;
   margin-bottom: 1rem;
   margin-top: 2.12rem;
@@ -795,7 +826,7 @@ hr {
 .p-s {
   flex: 1;
   /* Take remaining space */
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   /* Adjust font size as needed */
   line-height: 1;
   /* Adjust line height as needed */
@@ -985,7 +1016,7 @@ hr {
   margin-bottom: 15px;
   margin-top: 30px;
   width: 41%;
-  text-align: center;
+  text-align: justify;
   background-color: #181818;
   border-radius: 20px;
   padding: 35px;
@@ -1010,8 +1041,13 @@ hr {
   border: 5px solid #e87374;
 }
 
+.sl-as-s {
+  text-align: justify;
+}
+
 .sl-as-s blockquote {
-  margin-left: 50px; /* Added */
+  margin-left: 50px;
+  /* Added */
 }
 
 /* Optional: Adjustments for blockquote styling */
@@ -1021,7 +1057,7 @@ hr {
   border-left: 6px solid #e87374;
   padding: 10px 20px;
   border-radius: 10px;
-  text-align: initial;
+  text-align: justify;
 }
 
 .sl-as-s blockquote b {
@@ -1164,7 +1200,7 @@ hr {
 
 .sl-s-t-2 {
   text-decoration: underline;
-  font-size: 5rem;
+  font-size: 3em;
   font-weight: 700;
   margin-top: 6.25rem;
   margin-bottom: 1.5rem;
@@ -1282,7 +1318,7 @@ hr {
 }
 
 .pr {
-  padding: 100px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1301,8 +1337,8 @@ hr {
 
 .pr-ul-c-c {
   display: flex;
-   justify-content: space-around;
-   margin-top: 20px
+  justify-content: space-around;
+  margin-top: 20px
 }
 
 .pr-ul-c ul {
@@ -1361,7 +1397,7 @@ hr {
 
 .pr-p-c p {
   line-height: 1.5rem;
-  text-align: center;
+  text-align: justify;
   background-color: #181818;
   border-radius: 20px;
 }
@@ -1446,7 +1482,7 @@ tr td:nth-child(2), tr :nth-child(3) {
 
 .tp-p-c p {
   line-height: 1.5rem;
-  text-align: center;
+  text-align: justify;
   background-color: #181818;
   border-radius: 20px;
 }
@@ -1476,6 +1512,27 @@ tr td:nth-child(2), tr :nth-child(3) {
   transform: scale(1.035);
 }
 
+.tp-lp-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lp-link {
+  padding: 1rem;
+  background: #181818;
+  border: 5px solid #e87374;
+  border-radius: 15px;
+  transition: .4s ease-in-out;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.lp-link:hover {
+  transform: translateY(-10px);
+  transition: .4s ease-in-out;
+}
 
 @media only screen and (max-width: 1345px) {
 
