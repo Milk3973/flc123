@@ -187,7 +187,7 @@ main {
   .nav-links.active {
     right: 0;
     display: flex;
-    
+
   }
 
 }
@@ -548,7 +548,7 @@ main {
   transition-duration: 1s;
   touch-action: manipulation;
   margin: auto;
-  border: 2px solid #e87374;
+  border: 3.5px solid #e87374;
   width: 230px;
   text-decoration: none;
   justify-content: center;
@@ -856,10 +856,10 @@ hr {
 }
 
 .image-container {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: .625rem;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: 0.625rem;
 }
 
 .img-modal.show {
@@ -869,8 +869,8 @@ hr {
 }
 
 .image-container img {
-  width: 100%;
-  /* Take full width of grid cell */
+  width: calc((100% - 5 * 0.625rem) / 5);
+  /* Calculate width based on number of images */
   height: 16rem;
   /* Maintain aspect ratio */
   border-radius: 15px;
@@ -880,6 +880,7 @@ hr {
 .image-container img:hover {
   transform: scale(1.035);
 }
+
 
 .img-modal {
   display: none;
@@ -1019,7 +1020,7 @@ hr {
 .a-c {
   margin-bottom: 15px;
   margin-top: 30px;
-  width: 41%;
+  width: 80%;
   /* text-align: center; */
   background-color: #181818;
   border-radius: 20px;
@@ -1029,6 +1030,11 @@ hr {
 
 .sl-as-s {
   text-align: justify;
+}
+
+.rb-btns {
+  display: flex;
+  justify-content: space-around;
 }
 
 .sl-as-s blockquote {
@@ -1212,8 +1218,8 @@ hr {
 .sl-s1-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 50%;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
 
@@ -1252,7 +1258,7 @@ hr {
 }
 
 .sl-ig-c img {
-  width: calc((100% - 5 * 0.625rem) / 5);
+  width: calc((100% - 4 * 0.625rem) / 5);
   /* Adjust based on the number of images per row and gap */
   height: 16rem;
   border-radius: 15px;
@@ -1271,12 +1277,12 @@ hr {
   border: 5px solid #e87374;
   background-color: #181818;
   border-radius: 1.25rem;
-  width: 70%;
+  width: 100%;
   padding: 1rem;
 }
 
 .sw-ig-c img {
-  width: calc((100% - 7 * 0.625rem) / 8);
+  width: calc((100% - 7 * 0.625rem) / 5);
   /* Adjust based on the number of images per row and gap */
   height: 16rem;
   border-radius: 15px;
@@ -1298,8 +1304,8 @@ hr {
 .sl-s2-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 50%;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
 
@@ -1322,8 +1328,8 @@ hr {
 .sl-s3-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 50%;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
 
@@ -1395,7 +1401,7 @@ hr {
   border-radius: .9735rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   border: 5px solid #e87374;
   margin-bottom: 25px;
 }
@@ -1455,7 +1461,7 @@ tr td:nth-child(2), tr :nth-child(3) {
   border: 5px solid #e87374;
   background-color: #181818;
   border-radius: 1.25rem;
-  width: 40%;
+  width: 60%;
   padding: 1rem;
   margin-bottom: 25px;
 }
@@ -1486,7 +1492,7 @@ tr td:nth-child(2), tr :nth-child(3) {
   border-radius: .9735rem;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 80%;
   border: 5px solid #e87374;
   margin-bottom: 25px;
 }
@@ -1517,7 +1523,7 @@ tr td:nth-child(2), tr :nth-child(3) {
   border: 5px solid #e87374;
   background-color: #181818;
   border-radius: 1.25rem;
-  width: 50%;
+  width: 70%;
   padding: 1rem;
   margin-bottom: 25px;
 }
