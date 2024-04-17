@@ -249,7 +249,7 @@ main {
 }
 
 .nav-link {
-  transform: translateY(3.5px);
+  transform: translateY(3px);
 }
 
 .nav-links .nav-link::after {
