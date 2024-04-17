@@ -1,3 +1,4 @@
+const log = console.log.bind()
 // Get the modal
 var modal = document.getElementById("modal");
 var body = document.getElementById('body');
@@ -101,8 +102,10 @@ $('.sl-dd-link').on('click', function (event) {
 // Bind hashchange event to slide to a hash's slide
 $(window).on('hashchange', function () {
   var hash = window.location.hash;
+  log('hash-c: ' + slides.indexOf(hash.replace('#slide', '').replace(/_/g, ' ')));
   if (hash && slides.includes(hash.replace('#slide', '').replace(/_/g, ' '))) {
     var slideIndex = slides.indexOf(hash.replace('#slide', '').replace(/_/g, ' '));
+    log(slideIndex);
     swiper.slideTo(slideIndex);
     swiper.realIndex = slideIndex;
     // Update pagination active state
@@ -356,9 +359,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     navMenus.forEach(menu => menu.classList.remove("active"));
   });
 });
-
-
-
 
 window.addEventListener('scroll', function () {
   var heroHeight = document.getElementById('hero').offsetHeight;

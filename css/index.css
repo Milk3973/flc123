@@ -249,7 +249,7 @@ main {
 }
 
 .nav-link {
-  transform: translateY(3px);
+  transform: translateY(1.9px);
 }
 
 .nav-links .nav-link::after {
@@ -1496,6 +1496,7 @@ tr td:nth-child(2), tr :nth-child(3) {
   text-align: justify;
   background-color: #181818;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .tp-p-c a {
