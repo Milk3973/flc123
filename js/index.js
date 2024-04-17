@@ -134,6 +134,7 @@ var images5 = document.querySelectorAll(".sw-ig-c img");
 var images6 = document.querySelectorAll(".pr-ul-c-c img");
 var images7 = document.querySelectorAll(".pr-i-c img");
 var images8 = document.querySelectorAll(".tp-i-c img");
+var images9 = document.querySelectorAll(".sl-ig-c img");
 
 // Get the close button for the image modal
 var imageCloseButton = document.querySelector(".i-c");
@@ -299,6 +300,27 @@ images8.forEach(function (image) {
     modalContainer.style.width = widthValue;
   });
 });
+
+images9.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.textContent = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
 
 // Close the image modal when the close button is clicked
 imageCloseButton.onclick = function () {

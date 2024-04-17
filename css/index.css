@@ -190,24 +190,6 @@ main {
     
   }
 
-  .pr-dd-c, .tp-dd-c {
-    position: relative;
-}
-
-.pr-dd-c, .tp-dd-c {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #181818;
-    padding: 10px 0;
-    display: none;
-}
-
-.pr-dd:hover .pr-dd-c, .tp-dd:hover .tp-dd-c {
-    display: block;
-}
-
 }
 
 .overlay {
@@ -305,7 +287,7 @@ main {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  max-width: 300px;
+  max-width: 350px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 15px;
@@ -1251,6 +1233,30 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sl-ig-c {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  border: 5px solid #e87374;
+  background-color: #181818;
+  border-radius: 1.25rem;
+  width: 70%;
+  padding: 1rem;
+}
+
+.sl-ig-c img {
+  width: calc((100% - 7 * 0.625rem) / 2);
+  /* Adjust based on the number of images per row and gap */
+  height: 16rem;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.sl-ig-c img:hover {
+  transform: scale(1.035);
 }
 
 .sw-ig-c {
