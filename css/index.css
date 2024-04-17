@@ -1327,7 +1327,7 @@ hr {
 
 .pr-ul-c {
   background-color: #181818;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: .9735rem;
   display: flex;
   flex-direction: column;
@@ -1375,6 +1375,7 @@ hr {
   font-weight: 700;
   margin-top: 1.25rem;
   margin-bottom: 1.5rem;
+  padding-top: 100px;
   text-align: center;
 }
 
@@ -1485,6 +1486,10 @@ tr td:nth-child(2), tr :nth-child(3) {
   text-align: justify;
   background-color: #181818;
   border-radius: 20px;
+}
+
+.tp-p-c a {
+  color: #e87374;
 }
 
 .tp-i-c {
