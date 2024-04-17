@@ -21,7 +21,6 @@ function popRef() {
   modal.style.display = "block";
   body.style.overflowY = "hidden";
 }
-
 var slides = ['Student 1', 'Student 2', 'Student 3'];
 
 var swiper = new Swiper('.sl-slider', {
@@ -67,9 +66,10 @@ window.onload = function () {
   }
 };
 
+// Click event for pagination links
 $('.sl-pagination').on('click', 'a', function (event) {
   var slideIndex = $(this).index();
-  var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with underscores
+  var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with hyphens
   var hash = `#${slideName}`;
 
   // Update the hash in the URL
@@ -87,41 +87,35 @@ $('.sl-pagination').on('click', 'a', function (event) {
   updatePaginationActiveState(slideIndex);
 });
 
+// Click event for custom dropdown links
 $('.sl-dd-link').on('click', function (event) {
   var slideIndex = $(this).data('slide') - 1; // Adjusted to match the index starting from 0
-  var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with underscores
-  var hash = `#${slideName}`; // Construct the hash
-  console.log('swiper ai: ' + swiper.realIndex);
-  swiper.realIndex = slideIndex;
+  var slideName = slides[slideIndex].replace(/ /g, '-'); // Replace spaces with hyphens
+  var hash = `#${slideName}`;
+
   // Update the hash in the URL
   window.location.hash = hash;
 
   // Wait for the hashchange event to trigger the slide change
 });
 
-// Bind hashchange event to slide to a hash's slide
+// Hashchange event to slide to a hash's slide
 $(window).on('hashchange', function () {
   var hash = window.location.hash;
-  log('hash-c: ' + slides.indexOf(hash.replace('#slide', '').replace(/_/g, ' ')));
   if (hash && slides.includes(hash.replace('#slide', '').replace(/_/g, ' '))) {
     var slideIndex = slides.indexOf(hash.replace('#slide', '').replace(/_/g, ' '));
-    log(slideIndex);
-    swiper.slideTo(slideIndex);
-    swiper.realIndex = slideIndex;
+    swiper.slideToLoop(slideIndex); // Use slideToLoop instead of slideTo
+
     // Update pagination active state
     updatePaginationActiveState(slideIndex);
   }
 });
 
-
 // Function to update pagination active state
 function updatePaginationActiveState(slideIndex) {
   swiper.slideTo(slideIndex); // Slide to the specified index
-
-  // Update pagination active state
-  swiper.realIndex = slideIndex;
-  console.log(swiper.realIndex)
 }
+
 
 
 // Get the image modal
