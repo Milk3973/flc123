@@ -131,6 +131,7 @@ var images6 = document.querySelectorAll(".pr-ul-c-c img");
 var images7 = document.querySelectorAll(".pr-i-c img");
 var images8 = document.querySelectorAll(".tp-i-c img");
 var images9 = document.querySelectorAll(".sl-ig-c img");
+var images10 = document.querySelectorAll(".sl-s-c-i-c img");
 
 // Get the close button for the image modal
 var imageCloseButton = document.querySelector(".i-c");
@@ -148,7 +149,7 @@ images.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -169,7 +170,7 @@ images2.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -189,7 +190,7 @@ images3.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -209,7 +210,7 @@ images4.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -229,7 +230,7 @@ images5.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -249,7 +250,7 @@ images6.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -269,7 +270,7 @@ images7.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -289,7 +290,7 @@ images8.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
@@ -309,7 +310,27 @@ images9.forEach(function (image) {
 
     // Set the blurb text
     var blurb = imageModal.querySelector(".blurb");
-    blurb.textContent = blurbText;
+    blurb.innerHTML = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
+images10.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.innerHTML = blurbText;
 
     // Set the width of the modal
     var modalContainer = imageModal.querySelector(".i-m-c");
