@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
+/* @font-face {
+  font-family: JimmyScript;
+  src: url(../fonts/JimmyScript-Rg.otf);
+}
+@font-face {
+  font-family: IndahScript;
+  src: url(../fonts/IndahScript.otf);
+}
+@font-face {
+  font-family: Shelly;
+  src: url(../fonts/Shelly.otf);
+} */
 * {
   padding: 0;
   margin: 0;
@@ -468,6 +479,10 @@ main {
   white-space: nowrap;
 }
 
+/* .hero-hook span {
+  font-family: 'Shelly', sans-serif;
+} */
+
 /* .hero-left .hero-hook-btm {
   font-size: 1.8rem;
   margin-bottom: 5px;
@@ -607,11 +622,11 @@ main {
 }
 
 .slideshow {
-  width: 800px;
-  height: 450px;
+  width: 80%;
+  height: auto;
   background-color: #181818;
-  border-radius: 20px;
-  box-shadow: 0 0 25px #e87374;
+  border-radius: 8px;
+  box-shadow: 0 0 50px #e87374;
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -647,7 +662,7 @@ main {
   line-height: 1.5rem;
   margin-bottom: 15px;
   margin-top: 30px;
-  width: 90%;
+  width: 140%;
   text-align: justify;
   background-color: #181818;
   border-radius: 20px;
@@ -1218,7 +1233,7 @@ hr {
 .sl-s1-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 100%;
+  width: 80%;
   padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
@@ -1304,7 +1319,7 @@ hr {
 .sl-s2-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 100%;
+  width: 80%;
   padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
@@ -1328,7 +1343,7 @@ hr {
 .sl-s3-list {
   background-color: #181818;
   border-radius: .9735rem;
-  width: 100%;
+  width: 80%;
   padding: 1rem 2rem;
   border: 5px solid #e87374;
 }
@@ -1426,6 +1441,7 @@ hr {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+  width: 60%;
   border: 5px solid #e87374;
 }
 
@@ -1574,6 +1590,31 @@ tr td:nth-child(2), tr :nth-child(3) {
   .nn-link {
     font-size: 2rem;
     transition: .4s ease-in-out;
+  }
+}
+
+@media only screen and (max-width:500px) {
+  .nn-link {
+    font-size: 1.5rem;
+  }
+  .nav-links.active {
+    width: 100%;
+  }
+  .hero-hook {
+    font-size: 1.5rem;
+  }
+  .text-animation {
+    font-size: 1rem;
+    min-width: none;
+  }
+}
+
+@media only screen and (max-width:1000px) {
+  .hero-text {
+    width: 210%;
+  }
+  .slideshow {
+    width: 80%;
   }
 }
 
