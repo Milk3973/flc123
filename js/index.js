@@ -132,6 +132,9 @@ var images7 = document.querySelectorAll(".pr-i-c img");
 var images8 = document.querySelectorAll(".tp-i-c img");
 var images9 = document.querySelectorAll(".sl-ig-c img");
 var images10 = document.querySelectorAll(".sl-s-c-i-c img");
+var images11 = document.querySelectorAll(".sl-asi-c img");
+var images12 = document.querySelectorAll(".ris img");
+var images13 = document.querySelectorAll(".sl-wqi-c img");
 
 // Get the close button for the image modal
 var imageCloseButton = document.querySelector(".i-c");
@@ -338,6 +341,66 @@ images10.forEach(function (image) {
   });
 });
 
+images11.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.innerHTML = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
+images12.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.innerHTML = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
+images13.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.innerHTML = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
 
 // Close the image modal when the close button is clicked
 imageCloseButton.onclick = function () {
@@ -357,23 +420,48 @@ window.onclick = function (event) {
   }
 };
 
+const hamburger = document.querySelectorAll(".hamburger");
+const hamburger2 = document.querySelectorAll(".hamburger2");
+const sidenav = document.querySelectorAll(".sidenav");
+const sidenav2 = document.querySelectorAll(".sidenav2");
 
-const hamburgers = document.querySelectorAll(".hamburger");
-const navMenus = document.querySelectorAll(".nav-links");
-
-hamburgers.forEach(hamburger => {
-  hamburger.addEventListener('click', () => {
-    hamburgers.forEach(h => h.classList.toggle("active"));
-    navMenus.forEach(menu => menu.classList.toggle("active"));
+hamburger.forEach(hamburgerItem => {
+  hamburgerItem.addEventListener('click', () => {
+    hamburgerItem.classList.toggle("active");
+    sidenav.forEach(menu => menu.classList.toggle("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
   });
 });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
+document.querySelectorAll('.sidenav .nav-link').forEach(link => {
   link.addEventListener("click", () => {
-    hamburgers.forEach(h => h.classList.remove("active"));
-    navMenus.forEach(menu => menu.classList.remove("active"));
+    hamburger.forEach(h => h.classList.remove("active"));
+    sidenav.forEach(menu => menu.classList.remove("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
   });
 });
+
+hamburger2.forEach(hamburgerItem => {
+  hamburgerItem.addEventListener('click', () => {
+    hamburgerItem.classList.toggle("active");
+    // hamburgerItem.classList.toggle('position');
+    sidenav2.forEach(menu => menu.classList.toggle("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
+  });
+});
+
+document.querySelectorAll('.sidenav2 a').forEach(link => {
+  link.addEventListener("click", () => {
+    hamburger2.forEach(h => h.classList.remove("active"));
+    sidenav2.forEach(menu => menu.classList.remove("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
+  });
+});
+
 
 window.addEventListener('scroll', function () {
   var heroHeight = document.getElementById('hero').offsetHeight;
@@ -421,3 +509,5 @@ window.addEventListener('load', () => {
     }
   });
 });
+
+
