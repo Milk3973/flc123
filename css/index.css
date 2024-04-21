@@ -776,7 +776,7 @@ main {
 }
 
 .about {
-  padding: 100px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1155,7 +1155,7 @@ hr {
 
 
 .sl {
-  padding: 100px;
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1274,15 +1274,15 @@ hr {
   justify-content: center;
   background-color: #181818;
   border-radius: .9375rem;
-  padding: .16rem;
+  padding: 1rem;
   border: 5px solid #e87374;
-  width: 64%;
+  width: auto;
 }
 
 .sl-i-c-2 img {
   transition: 0.3s ease;
   border-radius: 15px;
-  width: calc((100% - 4 * 0.625rem) / 3);
+  width: 25%;
   margin: 1rem;
 }
 
