@@ -623,4 +623,9 @@ window.addEventListener('load', () => {
   });
 });
 
+// Optionally, you can add a dismiss button to hide the warning
+$('.mobile-warning').append('<button class="dismiss-btn">Dismiss</button>');
 
+$('.dismiss-btn').click(function() {
+  $('.mobile-warning').hide();
+});
