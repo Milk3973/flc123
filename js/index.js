@@ -135,6 +135,7 @@ var images10 = document.querySelectorAll(".sl-s-c-i-c img");
 var images11 = document.querySelectorAll(".sl-asi-c img");
 var images12 = document.querySelectorAll(".ris img");
 var images13 = document.querySelectorAll(".sl-wqi-c img");
+var images14 = document.querySelectorAll(".tp-sai-c img");
 
 // Get the close button for the image modal
 var imageCloseButton = document.querySelector(".i-c");
@@ -401,6 +402,26 @@ images13.forEach(function (image) {
   });
 });
 
+images14.forEach(function (image) {
+  image.addEventListener("click", function () {
+    imageModal.style.display = "flex";
+    imageModal.classList.add("show");
+    imageModal.querySelector(".img").style.backgroundImage = "url(" + this.src + ")";
+    document.body.style.overflow = "hidden"; // Disable body scroll
+    // Get the custom attributes
+    var blurbText = this.getAttribute("blurb"); // Get the blurb attribute value
+    var widthValue = this.getAttribute("widthValue"); // Get the width attribute value
+
+    // Set the blurb text
+    var blurb = imageModal.querySelector(".blurb");
+    blurb.innerHTML = blurbText;
+
+    // Set the width of the modal
+    var modalContainer = imageModal.querySelector(".i-m-c");
+    modalContainer.style.width = widthValue;
+  });
+});
+
 
 // Close the image modal when the close button is clicked
 imageCloseButton.onclick = function () {
@@ -434,7 +455,7 @@ hamburger.forEach(hamburgerItem => {
   });
 });
 
-document.querySelectorAll('.sidenav .nav-link').forEach(link => {
+document.querySelectorAll('.sidenav .sn-nav-link').forEach(link => {
   link.addEventListener("click", () => {
     hamburger.forEach(h => h.classList.remove("active"));
     sidenav.forEach(menu => menu.classList.remove("active"));
@@ -442,6 +463,88 @@ document.querySelectorAll('.sidenav .nav-link').forEach(link => {
     $('.overlay').toggle();
   });
 });
+
+document.querySelectorAll('.sidenav .sn-nn-link').forEach(link => {
+  link.addEventListener("click", () => {
+    console.log('hiihih')
+    hamburger.forEach(h => h.classList.remove("active"));
+    sidenav.forEach(menu => menu.classList.remove("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
+  });
+});
+
+
+$(document).ready(function () {
+  // Add click event listener to .sn-dd-nav-link elements
+  $(".sn-dd-nav-link").click(function (event) {
+    // Prevent default behavior (scrolling to hash)
+    event.preventDefault();
+      
+    // Get the parent .sn-dd element
+    var parentDropdown = $(this).closest('.sn-dd');
+    
+    // Check if the clicked dropdown is already open
+    var isOpen = parentDropdown.hasClass('open');
+    
+    // Close all open dropdowns
+    $('.sn-dd').removeClass('open');
+    
+    // If the clicked dropdown was not already open, open it
+    if (!isOpen) {
+      parentDropdown.addClass('open');
+    }
+    // If the dropdown is already open, scroll to its hash
+    if (isOpen) {
+      var hash = $(this).attr('href');
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800);
+      hamburger.forEach(h => h.classList.remove("active"));
+      sidenav.forEach(menu => menu.classList.remove("active"));
+      hamburger2.forEach(h => h.classList.remove("active"));
+      sidenav2.forEach(menu => menu.classList.remove("active"));
+      $('body').toggleClass('no-scroll');
+      $('.overlay').toggle();
+    }
+  });
+});
+
+
+$(document).ready(function () {
+  // Add click event listener to all <a> tags inside elements with class .dd
+  $(".sidenav2 .dd a").click(function (event) {
+
+    // Remove 'active' class from hamburger and sidenav elements
+    hamburger2.forEach(h => h.classList.remove("active"));
+    sidenav2.forEach(menu => menu.classList.remove("active"));
+
+    // Toggle 'no-scroll' class on body
+    $('body').toggleClass('no-scroll');
+    $(this).closest('.sn-dd').removeClass('open');
+    // Toggle overlay
+    $('.overlay').toggle();
+  });
+});
+
+$(document).ready(function () {
+  // Add click event listener to all <a> tags inside elements with class .dd
+  $(".sidenav .dd a").click(function (event) {
+
+
+    // Remove 'active' class from hamburger and sidenav elements
+    hamburger.forEach(h => h.classList.remove("active"));
+    sidenav.forEach(menu => menu.classList.remove("active"));
+
+    // Toggle 'no-scroll' class on body
+    $('body').toggleClass('no-scroll');
+
+    $(this).closest('.sn-dd').removeClass('open');
+    // Toggle overlay
+    $('.overlay').toggle();
+  });
+});
+
 
 hamburger2.forEach(hamburgerItem => {
   hamburgerItem.addEventListener('click', () => {
@@ -453,8 +556,18 @@ hamburger2.forEach(hamburgerItem => {
   });
 });
 
-document.querySelectorAll('.sidenav2 a').forEach(link => {
+document.querySelectorAll('.sidenav2 .sn-nav-link').forEach(link => {
   link.addEventListener("click", () => {
+    hamburger2.forEach(h => h.classList.remove("active"));
+    sidenav2.forEach(menu => menu.classList.remove("active"));
+    $('body').toggleClass('no-scroll');
+    $('.overlay').toggle();
+  });
+});
+
+document.querySelectorAll('.sidenav2 .sn-nn-link').forEach(link => {
+  link.addEventListener("click", () => {
+    console.log('hiihih')
     hamburger2.forEach(h => h.classList.remove("active"));
     sidenav2.forEach(menu => menu.classList.remove("active"));
     $('body').toggleClass('no-scroll');

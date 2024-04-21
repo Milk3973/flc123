@@ -205,12 +205,13 @@ main {
     right: -100%;
     top: 0;
     gap: 0;
-    display: none;
+    display: flex;
+    visibility: hidden;
     flex-direction: column;
     background-color: #181818;
     text-align: center;
     justify-content: center;
-    transition: right .4s ease-in-out;
+    transition:  1s ease-in-out;
     z-index: 53;
     height: 100%;
     width: 30%;
@@ -220,10 +221,11 @@ main {
 
   .sidenav .nav-links,
   .sidenav2 .nav-links {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition:  1s ease-in-out;
   }
 
   .h-link {
@@ -237,9 +239,11 @@ main {
   .sidenav.active,
   .sidenav2.active {
     right: 0;
-    display: flex;
+    visibility: visible;
     transition: .4s ease-in-out;
   }
+
+
 
 
   .real-nav .nav-links {
@@ -248,8 +252,6 @@ main {
 
   .sidenav2.active .nav-links, .sidenav.active .nav-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
 }
@@ -267,10 +269,6 @@ main {
   display: none;
   /* Initially hidden */
 }
-
-
-
-
 
 .nn-link {
   font-size: 2.5rem;
@@ -332,6 +330,7 @@ main {
   transform: scaleX(1);
 }
 
+
 .sl-dd:hover .sl-dd-c,
 .tp-dd:hover .tp-dd-c,
 .pr-dd:hover .pr-dd-c {
@@ -376,28 +375,26 @@ main {
   transition: background-color 0.2s ease-in-out;
 }
 
-.sn-sl-dd-c a:hover,
-.sn-tp-dd-c a:hover,
-.sn-pr-dd-c a:hover {
-  background-color: #dad6d6;
-  /* text-decoration: underline; */
-  /* Adjust as per your design */
-}
-
 .sn-sl-dd-c,
 .sn-tp-dd-c,
 .sn-pr-dd-c {
   display: none;
-  position: absolute;
-  background-color: #f9f9f9;
+  background-color: #262626;
   min-width: 160px;
   max-width: 350px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  max-height: 0;
   border-radius: 15px;
-  transform: translateY(100px);
-  transition: 0.4s ease-in-out;
-  /* Updated transition */
+  transition: max-height 0.4s ease-out; /* Added transition for max-height */
+  overflow: hidden; /* Hide overflow to avoid flickering */
+}
+
+.sn-dd.open .sn-sl-dd-c,
+.sn-dd.open .sn-tp-dd-c,
+.sn-dd.open .sn-pr-dd-c {
+  display: block;
+  max-height: 500px; /* Adjust as needed */
 }
 
 
@@ -410,18 +407,94 @@ main {
   border-radius: 15px;
   font-size: 1.2rem;
   font-weight: normal;
-  color: #000;
+  color: #fff;
   /* Adjust as per your design */
-  transition: background-color 0.2s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 .sn-sl-dd-c a:hover,
 .sn-tp-dd-c a:hover,
 .sn-pr-dd-c a:hover {
   background-color: #dad6d6;
+  color: #000;
   /* text-decoration: underline; */
   /* Adjust as per your design */
 }
+
+/* SIde Nav */
+
+.sn-nn-link {
+  font-size: 2.5rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.sn-nav-highlight {
+  color: #e87374;
+  text-shadow: 0 0 25px #e87374;
+}
+
+.sn-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sn-nav-link {
+  font-size: 1.35rem;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 15px;
+  transition: .5s ease-in-out;
+}
+
+.pr-dd-c {
+  right: 10;
+}
+
+.sn-dd-nav-link {
+  font-size: 1.35rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: .5s ease-in-out;
+}
+
+.sn-nav-link {
+  transform: translateY(1.9px);
+}
+
+.sn-nav-links .sn-nav-link::after {
+  content: "";
+  background-color: #e87374;
+  display: flex;
+  width: 100%;
+  left: 0%;
+  height: 2px;
+  transition: transform ease-in-out .5s;
+  transform-origin: center;
+  transform: scaleX(0);
+  position: relative;
+}
+
+.sn-nav-links .sn-nav-link:hover, .sn-dd-nav-link:hover {
+  color: #e87374;
+}
+
+.sn-nav-links .sn-nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.dd {
+  display: none;
+}
+
+.sn-dd.open .dd
+ {
+  display: block;
+}
+
+
+/* O///////////////////////uwu/////////////////////O */
 
 .sticky {
   position: fixed;
@@ -1730,13 +1803,13 @@ tr td:nth-child(2), tr :nth-child(3) {
   border: 5px solid #e87374;
   background-color: #181818;
   border-radius: 1.25rem;
-  width: 60%;
+  width: 75%;
   padding: 1rem;
   margin-bottom: 25px;
 }
 
 .pr-i-c img {
-  width: calc((100% - 7 * 0.625rem) / 2);
+  width: calc((100% - 7 * 0.625rem) / 3);
   /* Adjust based on the number of images per row and gap */
   height: 16rem;
   border-radius: 15px;
@@ -1829,6 +1902,50 @@ tr td:nth-child(2), tr :nth-child(3) {
 .lp-link:hover {
   transform: translateY(-10px);
   transition: .4s ease-in-out;
+}
+
+.tp-c {
+  padding-top:100px;
+   display: flex;
+   justify-content: center;
+}
+
+.tp-hi-c {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 5px solid #e87374;
+  background-color: #181818;
+  border-radius: 1.25rem;
+  width: 70%;
+  padding: 1rem;
+  margin-bottom: 25px;
+}
+
+.tp-sai-c {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: .625rem;
+}
+
+.tp-sai-c img {
+  width: calc((100% - 10 * 0.625rem) / 4);
+  /* Adjust based on the number of images per row and gap */
+  height: 16rem;
+  border-radius: 15px;
+  transition: 0.3s ease-in-out;
+}
+
+.tp-sai-c img:hover {
+  transform: scale(1.035);
+}
+
+.tp-hi-c  h2 {
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1345px) {
