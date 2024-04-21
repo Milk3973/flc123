@@ -815,11 +815,6 @@ main {
   text-align: center;
 }
 
-.p-t-c {
-  display: flex;
-  justify-content: center;
-}
-
 .philosphy-text {
   line-height: 1.5rem;
   margin-bottom: 15px;
@@ -936,7 +931,7 @@ hr {
   flex-direction: column;
   align-items: center;
   /* Center items horizontally */
-  max-width: 60%;
+  max-width: 100%;
   /* Adjust max-width as needed */
 }
 
