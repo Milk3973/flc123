@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+
 
 /* @font-face {
   font-family: JimmyScript;
@@ -548,6 +550,7 @@ main {
 
 .text-animation span {
   position: relative;
+  font-family: 'El Messiri', sans-serif;
 }
 
 .text-animation span::before {
@@ -640,9 +643,9 @@ main {
   white-space: nowrap;
 }
 
-/* 
-.hero-hook span {
-  font-family: 'Style Script', cursive;
+
+/* .hero-hook span {
+  font-family: 'El Messiri', sans-serif;
 } */
 
 /* .hero-left .hero-hook-btm {
